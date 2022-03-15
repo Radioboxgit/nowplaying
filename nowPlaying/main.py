@@ -20,11 +20,12 @@ app.add_middleware(
 
 
 @app.get('/')
-def homefn():
+def docs():
+    # redirect to project documentation
     return RedirectResponse(url='/docs')
 
 
-@app.get('/titles')
+@app.get('/title')
 def get_title(stream_url:str):
     title=get_song_title(stream_url)
     return title
