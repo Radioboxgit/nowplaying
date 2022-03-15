@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from services import get_song_title
 
@@ -20,7 +21,7 @@ app.add_middleware(
 
 @app.get('/')
 def homefn():
-    return {"message": "welcome to NowPlaying Python App"}
+    return RedirectResponse(url='/docs')
 
 
 @app.get('/titles')
